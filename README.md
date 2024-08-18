@@ -8,6 +8,7 @@
 - [TileSet (Ground design)](#tileset-ground-design)
 - [Character (Player)](#character-player)
 - [Creating Sub-scenes/Group/Prefab](#creating-sub-scenesgroupprefab)
+- [Character Movement & Collision](#character-movement--collision)
 
 ### Scene Setup
 - Create new project selecting mobile renderer & Git for version controlling
@@ -55,5 +56,27 @@
 - Right click on `CharacterBody2D` and select `Save Branch as Scene`
 - Create a new folder `scenes` and save it there as `main_character.tscn`
 - To edit it double click on the character
+
+    [⬆️ Go to top](#context)
+
+### Character Movement & Collision
+- Click on `main_character.tscn` 
+- Now beside `CharacterBody2D` there is a script icon with `+` sign
+- Click on it and create the `GDScript`
+- Now player basic movement will work
+- For `Collision` we have to configure it by selecting `TileMapLayer`
+- Now go to `TileSet` and select `Physics Layers`
+- Click on `TileSet` and select `Physics Layer 0` from `Paint`
+- Now Select those tile where player collision will happened
+
+    [⬆️ Go to top](#context)
+
+### Sprite Animation
+- Change `Sprite2D` to `AnimatedSprite2D`
+- Add Sprite Frame to new sprite frame
+- Add idle,jumping,running image from downloaded asset
+- Now click on `add frame from sprite sheet`
+- Adjust size and save
+- Make idle one default and run the game to see the movement
 
     [⬆️ Go to top](#context)
