@@ -6,6 +6,7 @@
 - [Scene Setup](#scene-setup)
 - [Background Image](#background-image)
 - [TileSet (Ground design)](#tileset-ground-design)
+- [Character (Player)](#character-player)
 
 ### Scene Setup
 - Create new project selecting mobile renderer & Git for version controlling
@@ -38,5 +39,13 @@
 - Now click on `TileMap` beside `TileSet`
 - Change `transform` to `3` to change the view of the tile to bigger
 - Now design the level
+
+    [⬆️ Go to top](#context)
+
+### Character (Player)
+- Create a new child node `CharacterBody2D`
+- Create `Sprite2D` & `CollisionShape2D` two new child in `CharacterBody2D` and import the character from the downloaded asset
+- Select `CharacterBody2D` and choose shape of the character body according to its shape
+- Adjust the size
 
     [⬆️ Go to top](#context)
