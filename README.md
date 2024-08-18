@@ -9,6 +9,9 @@
 - [Character (Player)](#character-player)
 - [Creating Sub-scenes/Group/Prefab](#creating-sub-scenesgroupprefab)
 - [Character Movement & Collision](#character-movement--collision)
+- [Sprite Animation](#sprite-animation)
+- [Character movement tweaks](#character-movement-tweaks)
+- [Input map](#input-map)
 
 ### Scene Setup
 - Create new project selecting mobile renderer & Git for version controlling
@@ -78,5 +81,34 @@
 - Now click on `add frame from sprite sheet`
 - Adjust size and save
 - Make idle one default and run the game to see the movement
+
+    [⬆️ Go to top](#context)
+
+### Character movement tweaks
+- In `_physics_process` function add condition for running and idle
+    ```gd
+    #Animations 
+    if(velocity.x>1||velocity.x<-1):
+        animated_sprite_2d.animation="running"
+    else:
+        animated_sprite_2d.animation="default_idle"
+    ```
+- In gravity add jumping animation
+    ```gd
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+		animated_sprite_2d.animation="jumping"
+    ```
+- For smooth stop change `SPEED` in `move_toward` 10 to 20 range
+    ```gd
+    velocity.x = move_toward(velocity.x, 0, 20)
+    ```
+
+    [⬆️ Go to top](#context)
+
+### Input map
+- Go to project setting and setup input map
+- After setting keys in input map just replace those name in project `main.tscn`
 
     [⬆️ Go to top](#context)
