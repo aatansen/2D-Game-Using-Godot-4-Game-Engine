@@ -7,6 +7,7 @@
 - [Background Image](#background-image)
 - [TileSet (Ground design)](#tileset-ground-design)
 - [Character (Player)](#character-player)
+- [Creating Sub-scenes/Group/Prefab](#creating-sub-scenesgroupprefab)
 
 ### Scene Setup
 - Create new project selecting mobile renderer & Git for version controlling
@@ -47,5 +48,12 @@
 - Create `Sprite2D` & `CollisionShape2D` two new child in `CharacterBody2D` and import the character from the downloaded asset
 - Select `CharacterBody2D` and choose shape of the character body according to its shape
 - Adjust the size
+
+    [⬆️ Go to top](#context)
+
+### Creating Sub-scenes/Group/Prefab
+- Right click on `CharacterBody2D` and select `Save Branch as Scene`
+- Create a new folder `scenes` and save it there as `main_character.tscn`
+- To edit it double click on the character
 
     [⬆️ Go to top](#context)
