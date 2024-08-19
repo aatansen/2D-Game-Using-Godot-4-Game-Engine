@@ -18,6 +18,7 @@
 - [Keep track of collectables](#keep-track-of-collectables)
 - [Extend game level, add finish](#extend-game-level-add-finish)
 - [Displaying points in UI](#displaying-points-in-ui)
+- [Creating 2nd level](#creating-2nd-level)
 
 ### Scene Setup
 - Create new project selecting mobile renderer & Git for version controlling
@@ -204,5 +205,15 @@
         poinst_label.text = "Points: " + str(points)
         print(points)
     ```
+
+    [⬆️ Go to top](#context)
+
+### Creating 2nd level
+- Duplicate `main.tscn` and rename it to `level1.tscn` and duplicated one to `level2.tscn`
+- Move these two to `scenes` directory
+- Now edit `level2.tscn` to design new level
+- Make sure to add `physics layer 0` in `TileSet` for new collide
+- To test the new level set it as main scene by right clicking on `level2.tscn`
+
 
     [⬆️ Go to top](#context)
