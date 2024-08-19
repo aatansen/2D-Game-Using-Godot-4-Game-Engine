@@ -16,6 +16,7 @@
 - [Placing collectables](#placing-collectables)
 - [Project settings](#project-settings)
 - [Keep track of collectables](#keep-track-of-collectables)
+- [Extend game level, add finish](#extend-game-level-add-finish)
 
 ### Scene Setup
 - Create new project selecting mobile renderer & Git for version controlling
@@ -174,5 +175,13 @@
                 queue_free()
                 game_manager.add_point()
         ```
+
+    [⬆️ Go to top](#context)
+
+### Extend game level, add finish
+- Extend scene by editing `TileMapLayer`
+- To end the level add trophy from the asset
+- Create new `Area2D` node with two child node `Sprite2D` and `CollisionShape2D`
+- Adjust the size and place it
 
     [⬆️ Go to top](#context)
