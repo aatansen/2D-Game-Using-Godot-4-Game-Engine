@@ -191,3 +191,7 @@ tile_set = SubResource("TileSet_vm2yk")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_8gmof")]
 position = Vector2(9, 179)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(24, 30)
+position_smoothing_enabled = true

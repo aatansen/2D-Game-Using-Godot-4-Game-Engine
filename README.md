@@ -12,6 +12,7 @@
 - [Sprite Animation](#sprite-animation)
 - [Character movement tweaks](#character-movement-tweaks)
 - [Input map](#input-map)
+- [Dynamic camera](#dynamic-camera)
 
 ### Scene Setup
 - Create new project selecting mobile renderer & Git for version controlling
@@ -110,5 +111,12 @@
 ### Input map
 - Go to project setting and setup input map
 - After setting keys in input map just replace those name in project `main.tscn`
+
+    [⬆️ Go to top](#context)
+
+### Dynamic camera
+- Add `Camera2D` child in `CharacterBody2D`
+- Now add the pointer to the character
+- To make the camera movement smoother turn on smooth positioning
 
     [⬆️ Go to top](#context)
