@@ -15,6 +15,7 @@
 - [Dynamic camera](#dynamic-camera)
 - [Placing collectables](#placing-collectables)
 - [Project settings](#project-settings)
+- [Keep track of collectables](#keep-track-of-collectables)
 
 ### Scene Setup
 - Create new project selecting mobile renderer & Git for version controlling
@@ -136,5 +137,42 @@
 
 ### Project settings
 - Adjust aspect ratio full screen in project setting window stretch mode to `canvas_item` and aspect `expand`
+
+    [⬆️ Go to top](#context)
+
+### Keep track of collectables
+- Click on `collectable.tscn` and add `gdscript`
+- Remove everything except  `extends Area2D` from `gdscript` and click on `collectable`
+- This will show option on the right where node signals list will be shown
+- Double click on `on_body_entered` signal
+- Now add condition for when player collide with collectable it will vanish
+    ```gd
+    extends Area2D
+
+    func _on_body_entered(body: Node2D) -> void:
+        if body.name == "CharacterBody2D":
+            queue_free()
+    ```
+- Game Manager
+    - To keep track of collecting point create new node `GameManager`
+    - Click on `GameManager` and create `gdscript`
+    - Add point count functionality
+        ```gd
+        extends Node
+
+        var points=0
+        func add_point():
+            points+=1
+            print(points)
+        ```
+    - Now right click on `GameManager` node and click on `access as unique name`
+    - Now drag and drop `GameManager` while holding ctrl in `collectable.gd` and modify the function to count when collide
+        ```gd
+        @onready var game_manager: Node = %GameManager
+        func _on_body_entered(body: Node2D) -> void:
+            if body.name == "CharacterBody2D":
+                queue_free()
+                game_manager.add_point()
+        ```
 
     [⬆️ Go to top](#context)
