@@ -13,6 +13,8 @@
 - [Character movement tweaks](#character-movement-tweaks)
 - [Input map](#input-map)
 - [Dynamic camera](#dynamic-camera)
+- [Placing collectables](#placing-collectables)
+- [Project settings](#project-settings)
 
 ### Scene Setup
 - Create new project selecting mobile renderer & Git for version controlling
@@ -53,7 +55,12 @@
 - Create `Sprite2D` & `CollisionShape2D` two new child in `CharacterBody2D` and import the character from the downloaded asset
 - Select `CharacterBody2D` and choose shape of the character body according to its shape
 - Adjust the size
-
+- For falling animation add falling image and add condition in `main.tscn`
+    ```gd
+	# Falling animation
+    if velocity.y>0:
+        animated_sprite_2d.animation="fall"
+    ```
     [⬆️ Go to top](#context)
 
 ### Creating Sub-scenes/Group/Prefab
@@ -118,5 +125,16 @@
 - Add `Camera2D` child in `CharacterBody2D`
 - Now add the pointer to the character
 - To make the camera movement smoother turn on smooth positioning
+
+    [⬆️ Go to top](#context)
+
+### Placing collectables
+- Add collectables fruit from asset
+- Create animation using `AnimatedSprite2D` & `CollisionShape2D`
+- Save as scene
+- Add fruit in the game
+
+### Project settings
+- Adjust aspect ratio full screen in project setting window stretch mode to `canvas_item` and aspect `expand`
 
     [⬆️ Go to top](#context)

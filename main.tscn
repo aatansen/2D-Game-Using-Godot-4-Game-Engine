@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://cl5jn6l5j3sm7"]
+[gd_scene load_steps=7 format=4 uid="uid://cl5jn6l5j3sm7"]
 
 [ext_resource type="Texture2D" uid="uid://cic5wq368pxth" path="res://Green.png" id="1_fvlc5"]
 [ext_resource type="Texture2D" uid="uid://bo5g4mdth4r4n" path="res://Terrain (16x16).png" id="2_4lyny"]
 [ext_resource type="PackedScene" uid="uid://cyj6xh3uonqyg" path="res://scenes/main_character.tscn" id="3_8gmof"]
+[ext_resource type="PackedScene" uid="uid://2sb5yocutbej" path="res://scenes/collectable.tscn" id="4_3cxw6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yik4t"]
 texture = ExtResource("2_4lyny")
@@ -175,11 +176,8 @@ sources/1 = SubResource("TileSetAtlasSource_yik4t")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 1166.0
+offset_bottom = 644.0
 texture = ExtResource("1_fvlc5")
 stretch_mode = 1
 
@@ -195,3 +193,27 @@ position = Vector2(9, 179)
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(24, 30)
 position_smoothing_enabled = true
+
+[node name="collectable" parent="." instance=ExtResource("4_3cxw6")]
+position = Vector2(432, 217)
+
+[node name="collectable2" parent="." instance=ExtResource("4_3cxw6")]
+position = Vector2(450, 554)
+
+[node name="collectable3" parent="." instance=ExtResource("4_3cxw6")]
+position = Vector2(654, 508)
+
+[node name="collectable4" parent="." instance=ExtResource("4_3cxw6")]
+position = Vector2(984, 123)
+
+[node name="collectable5" parent="." instance=ExtResource("4_3cxw6")]
+position = Vector2(1079, 461)
+
+[node name="collectable6" parent="." instance=ExtResource("4_3cxw6")]
+position = Vector2(883, 506)
+
+[node name="collectable7" parent="." instance=ExtResource("4_3cxw6")]
+position = Vector2(704, 219)
+
+[node name="collectable8" parent="." instance=ExtResource("4_3cxw6")]
+position = Vector2(862, 314)
