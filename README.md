@@ -17,6 +17,7 @@
 - [Project settings](#project-settings)
 - [Keep track of collectables](#keep-track-of-collectables)
 - [Extend game level, add finish](#extend-game-level-add-finish)
+- [Displaying points in UI](#displaying-points-in-ui)
 
 ### Scene Setup
 - Create new project selecting mobile renderer & Git for version controlling
@@ -183,5 +184,25 @@
 - To end the level add trophy from the asset
 - Create new `Area2D` node with two child node `Sprite2D` and `CollisionShape2D`
 - Adjust the size and place it
+
+    [⬆️ Go to top](#context)
+
+### Displaying points in UI
+- Create a new node `CanvasLayer` to show the point always on the screen
+- Add a simple `panel` for background of the point
+- Adjust the size and stick it to the corner using anchor preset
+- Add new child node `label` in `panel` node for displaying text
+- Adjust size,anchor preset alignment of the label
+- To modify the text of the level when player collide with fruit, add `PointsLabel` to `access as unique name`
+- Drag and drop `PointsLabel` in `game_manager.gd` with ctrl holding and modify as below
+    ```gd
+    extends Node
+    @onready var poinst_label: Label = %PoinstLabel
+    var points=0
+    func add_point():
+        points+=1
+        poinst_label.text = "Points: " + str(points)
+        print(points)
+    ```
 
     [⬆️ Go to top](#context)
