@@ -19,6 +19,7 @@
 - [Extend game level, add finish](#extend-game-level-add-finish)
 - [Displaying points in UI](#displaying-points-in-ui)
 - [Creating 2nd level](#creating-2nd-level)
+- [Main menu UI in your Godot game](#main-menu-ui-in-your-godot-game)
 
 ### Scene Setup
 - Create new project selecting mobile renderer & Git for version controlling
@@ -215,5 +216,14 @@
 - Make sure to add `physics layer 0` in `TileSet` for new collide
 - To test the new level set it as main scene by right clicking on `level2.tscn`
 
+    [⬆️ Go to top](#context)
+
+### Main menu UI in your Godot game
+- Make new scene right clicking on `scene` directory
+- Name it `main_menu.tscn`
+- Create 2 new node `TextureRect`
+- One is for background image and another is for game title
+- Create 2 `button` node and place it below title as `level 1` & `level 2`
+- Set `main_menu.tscn` as main scene by right clicking on it
 
     [⬆️ Go to top](#context)
