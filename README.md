@@ -20,6 +20,7 @@
 - [Displaying points in UI](#displaying-points-in-ui)
 - [Creating 2nd level](#creating-2nd-level)
 - [Main menu UI in your Godot game](#main-menu-ui-in-your-godot-game)
+- [Scene transition](#scene-transition)
 
 ### Scene Setup
 - Create new project selecting mobile renderer & Git for version controlling
@@ -226,4 +227,28 @@
 - Create 2 `button` node and place it below title as `level 1` & `level 2`
 - Set `main_menu.tscn` as main scene by right clicking on it
 
+    [⬆️ Go to top](#context)
+
+### Scene transition
+- Scene transition from main menu
+    - When in main menu there is two button 1 & 2
+    - Create a main menu gdscript
+    - Now while selecting `main_menu.gd` click on level 1 button and add `pressed()` signal. do the same for level 2 button
+    - Now to change scene add `get_tree().change_scene_to_file("res://scenes/level1.tscn")`
+- Now when player in level 1 and touch the trophy it will go to level 2 and when in level 2 it will go to main menu
+    - Create gdscript for `finish.tscn`
+    - Now in `finish.gd` create `body_entered` signal with below code
+        ```gd
+        extends Area2D
+        @export var target_level: PackedScene
+
+        func _on_body_entered(body: Node2D) -> void:
+            if body.name == "CharacterBody2D":
+                call_deferred("_change_scene")
+
+        func _change_scene() -> void:
+            get_tree().change_scene_to_packed(target_level)
+        ```
+- Now go to level 1 and select the trophy, on the right side there will be `target level` select level 2
+- Now in level 2 select main menu or just drag and drop `main_menu.tscn`
     [⬆️ Go to top](#context)
