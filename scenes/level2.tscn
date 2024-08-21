@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_hv5gx"]
 [ext_resource type="Texture2D" uid="uid://db15acmvf8l30" path="res://scenes/Yellow.png" id="2_q44t8"]
-[ext_resource type="Texture2D" uid="uid://bo5g4mdth4r4n" path="res://Terrain (16x16).png" id="3_f4ach"]
+[ext_resource type="Texture2D" uid="uid://bo5g4mdth4r4n" path="res://images/map_terrain.png" id="3_f4ach"]
 [ext_resource type="PackedScene" uid="uid://cyj6xh3uonqyg" path="res://scenes/main_character.tscn" id="4_xsuhn"]
 [ext_resource type="PackedScene" uid="uid://2sb5yocutbej" path="res://scenes/collectable.tscn" id="5_kimx6"]
 [ext_resource type="PackedScene" uid="uid://dyx7uld14q1yo" path="res://scenes/finish.tscn" id="6_7tdav"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4er2ppf7uv6w"
-path="res://.godot/imported/heart.png-46ac0108226a8969f121b451c7b38c9b.ctex"
+uid="uid://7cvs2r2ohu7w"
+path="res://.godot/imported/Cherries.png-6231623b3cb43b7f8df39d307558e557.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://heart.png"
-dest_files=["res://.godot/imported/heart.png-46ac0108226a8969f121b451c7b38c9b.ctex"]
+source_file="res://images/Cherries.png"
+dest_files=["res://.godot/imported/Cherries.png-6231623b3cb43b7f8df39d307558e557.ctex"]
 
 [params]
 

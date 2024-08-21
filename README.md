@@ -1,5 +1,5 @@
 <div align="center">
-<h1>2D Game Using Godot 4</h1>
+<h1>2D Game Using Godot 4 Game Engine</h1>
 </div>
 
 ### Context
@@ -22,6 +22,7 @@
 - [Main menu UI in your Godot game](#main-menu-ui-in-your-godot-game)
 - [Scene transition](#scene-transition)
 - [Health points](#health-points)
+- [Enemies](#enemies)
 
 ### Scene Setup
 - Create new project selecting mobile renderer & Git for version controlling
@@ -261,5 +262,14 @@
 - Add `heart.png` in res
 - Create `Panel` node inside that create `TextureRect`
 - Now align heart using another node by selecting three of the heart `Reparent to new node` and select `HBoxContainer` node
+
+    [⬆️ Go to top](#context)
+
+### Enemies
+- Download enemies asset from [itch.io](https://pixelfrog-assets.itch.io/pixel-adventure-2)
+- Add `Mushroom` enemy asset in res directory
+- Create new node `RigidBody2D` inside that create 2 more node `AnimatedSprite2D` where frame will be adjust and another node `CollisionShape2D` for collide
+- Now save it as `Scene`
+- Now drag and drop `enemy.tscn` to the map
 
     [⬆️ Go to top](#context)
