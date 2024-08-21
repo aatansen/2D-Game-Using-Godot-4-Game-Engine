@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cl5jn6l5j3sm7"]
+[gd_scene load_steps=11 format=4 uid="uid://cl5jn6l5j3sm7"]
 
 [ext_resource type="Texture2D" uid="uid://cic5wq368pxth" path="res://Green.png" id="1_fvlc5"]
 [ext_resource type="Texture2D" uid="uid://bo5g4mdth4r4n" path="res://Terrain (16x16).png" id="2_4lyny"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://game_manager.gd" id="5_fdjay"]
 [ext_resource type="PackedScene" uid="uid://dyx7uld14q1yo" path="res://scenes/finish.tscn" id="6_ex8h6"]
 [ext_resource type="PackedScene" uid="uid://cj823otj6f340" path="res://scenes/level2.tscn" id="7_chr33"]
+[ext_resource type="Texture2D" uid="uid://c4er2ppf7uv6w" path="res://heart.png" id="8_xas63"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yik4t"]
 texture = ExtResource("2_4lyny")
@@ -283,3 +284,37 @@ theme_override_font_sizes/font_size = 26
 text = "Points: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="hearts" type="Panel" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -202.0
+offset_top = 17.0
+offset_right = -16.0
+offset_bottom = 82.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/hearts"]
+layout_mode = 0
+offset_right = 185.0
+offset_bottom = 59.0
+alignment = 1
+
+[node name="heart" type="TextureRect" parent="UI/hearts/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("8_xas63")
+expand_mode = 2
+
+[node name="heart2" type="TextureRect" parent="UI/hearts/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("8_xas63")
+expand_mode = 2
+
+[node name="heart3" type="TextureRect" parent="UI/hearts/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("8_xas63")
+expand_mode = 2

@@ -21,6 +21,7 @@
 - [Creating 2nd level](#creating-2nd-level)
 - [Main menu UI in your Godot game](#main-menu-ui-in-your-godot-game)
 - [Scene transition](#scene-transition)
+- [Health points](#health-points)
 
 ### Scene Setup
 - Create new project selecting mobile renderer & Git for version controlling
@@ -251,4 +252,14 @@
         ```
 - Now go to level 1 and select the trophy, on the right side there will be `target level` select level 2
 - Now in level 2 select main menu or just drag and drop `main_menu.tscn`
+
+    [⬆️ Go to top](#context)
+
+### Health points
+- Download heart asset from [itch.io](https://disven.itch.io/pixel-icons-and-game-controller-2)
+- To edit/crop use [Aseprite](https://github.com/aseprite/aseprite)
+- Add `heart.png` in res
+- Create `Panel` node inside that create `TextureRect`
+- Now align heart using another node by selecting three of the heart `Reparent to new node` and select `HBoxContainer` node
+
     [⬆️ Go to top](#context)
