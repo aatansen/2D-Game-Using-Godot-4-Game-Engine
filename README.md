@@ -25,6 +25,7 @@
 - [Enemies I](#enemies)
 - [Level 3 with Traps (falling ground)](#level-3-with-traps-falling-ground)
 - [Enemies II](#enemies-ii)
+- [Pause menu](#pause-menu)
 
 ### Scene Setup
 - Create new project selecting mobile renderer & Git for version controlling
@@ -316,5 +317,41 @@
     - According to the value condition are made
     - `queue_free()` means enemy body disappeared
     - `body.queue_free()` means player body disappeared
+
+    [⬆️ Go to top](#context)
+
+### Pause menu
+- Create a new `Node` in UI root node
+- In that node create `Panel` node
+- Make the panel preset full rect
+- Now create another node `VBoxContainer`
+- Inside `VBoxContainer` node add 2 button `Resume_btn` and `Main_menu_btn`
+- Adjust the size
+- Now hide the `PausePanel` node and attach a script in `Pause` node
+- Inside `_process` function get the input
+    - `var esc_pressed = Input.is_action_just_pressed("pause")`
+- Now check if `esc_pressed` is pressed with condition
+    ```gd
+    if esc_pressed:
+        get_tree().paused = true
+        pause_panel.show()
+    ```
+    - Here `pause_panel` is the `PausePanel` node where we make it unique name first and than drag and drop with holding ctrl button
+- To make it work we need to set the input map from project setting and add new key for `pause` and the `Esc` key
+- Now add two signal for each of the buttons on pressed signal
+    ```gd
+    func _on_resume_btn_pressed() -> void:
+        print("pressed resume")
+        pause_panel.hide()
+        get_tree().paused = false
+
+
+    func _on_main_menu_btn_pressed() -> void:
+        print("pressed main_menu")
+        get_tree().paused = false
+        get_tree().change_scene_to_file("res://scenes/menu/main_menu.tscn")
+    ```
+- Still button press won't work cause the process is pause
+- To solve this we need to select both of the button and from inspector sidebar change the process mode to `always`
 
     [⬆️ Go to top](#context)

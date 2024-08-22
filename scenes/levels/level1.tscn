@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cl5jn6l5j3sm7"]
+[gd_scene load_steps=13 format=4 uid="uid://cl5jn6l5j3sm7"]
 
 [ext_resource type="Texture2D" uid="uid://cic5wq368pxth" path="res://assets/background/Green.png" id="1_fvlc5"]
 [ext_resource type="Texture2D" uid="uid://bo5g4mdth4r4n" path="res://assets/terrain/map_terrain.png" id="2_4lyny"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cj823otj6f340" path="res://scenes/levels/level2.tscn" id="7_chr33"]
 [ext_resource type="PackedScene" uid="uid://ba5kh4sf4kxh4" path="res://scenes/game_objects/enemy.tscn" id="8_k640r"]
 [ext_resource type="Texture2D" uid="uid://c4er2ppf7uv6w" path="res://assets/objects/heart.png" id="8_xas63"]
+[ext_resource type="Script" path="res://scenes/levels/pause.gd" id="10_pps7d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yik4t"]
 texture = ExtResource("2_4lyny")
@@ -345,3 +346,60 @@ texture_filter = 1
 layout_mode = 2
 texture = ExtResource("8_xas63")
 expand_mode = 2
+
+[node name="Pause" type="Node" parent="UI"]
+script = ExtResource("10_pps7d")
+
+[node name="PausePanel" type="Panel" parent="UI/Pause"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/Pause/PausePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -105.0
+offset_right = 160.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Game Paused"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Pause/PausePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = -30.0
+offset_right = 175.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume_btn" type="Button" parent="UI/Pause/PausePanel/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Resume"
+
+[node name="Main_menu_btn" type="Button" parent="UI/Pause/PausePanel/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Main Menu"
+
+[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume_btn" to="UI/Pause" method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Main_menu_btn" to="UI/Pause" method="_on_main_menu_btn_pressed"]
