@@ -10,22 +10,23 @@
 - [Creating Sub-scenes/Group/Prefab](#creating-sub-scenesgroupprefab)
 - [Character Movement & Collision](#character-movement--collision)
 - [Sprite Animation](#sprite-animation)
-- [Character movement tweaks](#character-movement-tweaks)
-- [Input map](#input-map)
-- [Dynamic camera](#dynamic-camera)
-- [Placing collectables](#placing-collectables)
-- [Project settings](#project-settings)
-- [Keep track of collectables](#keep-track-of-collectables)
-- [Extend game level, add finish](#extend-game-level-add-finish)
-- [Displaying points in UI](#displaying-points-in-ui)
-- [Creating 2nd level](#creating-2nd-level)
-- [Main menu UI in your Godot game](#main-menu-ui-in-your-godot-game)
-- [Scene transition](#scene-transition)
-- [Health points](#health-points)
+- [Character Movement Tweaks](#character-movement-tweaks)
+- [Input Map](#input-map)
+- [Dynamic Camera](#dynamic-camera)
+- [Placing Collectables](#placing-collectables)
+- [Project Settings](#project-settings)
+- [Keep Track of Collectables](#keep-track-of-collectables)
+- [Extend Game Level, Add Finish](#extend-game-level-add-finish)
+- [Displaying Points in UI](#displaying-points-in-ui)
+- [Creating 2nd Level](#creating-2nd-level)
+- [Main Menu UI](#main-menu-ui)
+- [Scene Transition](#scene-transition)
+- [Health Points I](#health-points)
 - [Enemies I](#enemies)
 - [Level 3 with Traps (falling ground)](#level-3-with-traps-falling-ground)
 - [Enemies II](#enemies-ii)
-- [Pause menu](#pause-menu)
+- [Pause Menu](#pause-menu)
+- [Health Points II](#health-points-ii)
 
 ### Scene Setup
 - Create new project selecting mobile renderer & Git for version controlling
@@ -103,7 +104,7 @@
 
     [⬆️ Go to top](#context)
 
-### Character movement tweaks
+### Character Movement Tweaks
 - In `_physics_process` function add condition for running and idle
     ```gd
     #Animations 
@@ -126,31 +127,31 @@
 
     [⬆️ Go to top](#context)
 
-### Input map
+### Input Map
 - Go to project setting and setup input map
 - After setting keys in input map just replace those name in project `main.tscn`
 
     [⬆️ Go to top](#context)
 
-### Dynamic camera
+### Dynamic Camera
 - Add `Camera2D` child in `CharacterBody2D`
 - Now add the pointer to the character
 - To make the camera movement smoother turn on smooth positioning
 
     [⬆️ Go to top](#context)
 
-### Placing collectables
+### Placing Collectables
 - Add collectables fruit from asset
 - Create animation using `AnimatedSprite2D` & `CollisionShape2D`
 - Save as scene
 - Add fruit in the game
 
-### Project settings
+### Project Settings
 - Adjust aspect ratio full screen in project setting window stretch mode to `canvas_item` and aspect `expand`
 
     [⬆️ Go to top](#context)
 
-### Keep track of collectables
+### Keep Track of Collectables
 - Click on `collectable.tscn` and add `gdscript`
 - Remove everything except  `extends Area2D` from `gdscript` and click on `collectable`
 - This will show option on the right where node signals list will be shown
@@ -187,7 +188,7 @@
 
     [⬆️ Go to top](#context)
 
-### Extend game level, add finish
+### Extend Game Level, Add Finish
 - Extend scene by editing `TileMapLayer`
 - To end the level add trophy from the asset
 - Create new `Area2D` node with two child node `Sprite2D` and `CollisionShape2D`
@@ -195,7 +196,7 @@
 
     [⬆️ Go to top](#context)
 
-### Displaying points in UI
+### Displaying Points in UI
 - Create a new node `CanvasLayer` to show the point always on the screen
 - Add a simple `panel` for background of the point
 - Adjust the size and stick it to the corner using anchor preset
@@ -215,7 +216,7 @@
 
     [⬆️ Go to top](#context)
 
-### Creating 2nd level
+### Creating 2nd Level
 - Duplicate `main.tscn` and rename it to `level1.tscn` and duplicated one to `level2.tscn`
 - Move these two to `scenes` directory
 - Now edit `level2.tscn` to design new level
@@ -224,7 +225,7 @@
 
     [⬆️ Go to top](#context)
 
-### Main menu UI in your Godot game
+### Main Menu UI
 - Make new scene right clicking on `scene` directory
 - Name it `main_menu.tscn`
 - Create 2 new node `TextureRect`
@@ -234,7 +235,7 @@
 
     [⬆️ Go to top](#context)
 
-### Scene transition
+### Scene Transition
 - Scene transition from main menu
     - When in main menu there is two button 1 & 2
     - Create a main menu gdscript
@@ -259,7 +260,7 @@
 
     [⬆️ Go to top](#context)
 
-### Health points
+### Health Points I
 - Download heart asset from [itch.io](https://disven.itch.io/pixel-icons-and-game-controller-2)
 - To edit/crop use [Aseprite](https://github.com/aseprite/aseprite)
 - Add `heart.png` in res
@@ -320,7 +321,7 @@
 
     [⬆️ Go to top](#context)
 
-### Pause menu
+### Pause Menu
 - Create a new `Node` in UI root node
 - In that node create `Panel` node
 - Make the panel preset full rect
@@ -353,5 +354,80 @@
     ```
 - Still button press won't work cause the process is pause
 - To solve this we need to select both of the button and from inspector sidebar change the process mode to `always`
+
+    [⬆️ Go to top](#context)
+
+### Health Points II
+- In `game_manager.gd` Create a function to decrease the health
+    ```gd
+    var lives=3
+
+    func decrease_health():
+        lives-=1
+        print(lives)
+        if lives<0:
+            get_tree().reload_current_scene()
+    ```
+- Now to include it in `enemy.gd` script drag and drop GameManager node with holding ctrl
+    ```gd
+    extends RigidBody2D
+    @onready var game_manager: Node = %GameManager
+
+    func _on_area_2d_body_entered(body: Node2D) -> void:
+        if body.name == "CharacterBody2D":
+            var y_delta=position.y-body.position.y
+            if y_delta>47:
+                print("Destroy Enemy ",y_delta)
+                queue_free()
+                body.jump()
+            else:
+                print("Health Decrease ",y_delta)
+                #body.queue_free()
+                game_manager.decrease_health()
+    ```
+    - Here `game_manager.decrease_health()` is calling that function we created in `game_manager.gd`
+- To make the heart decrease when player collide with enemy, we need to export `Array[Node]` in `game_manager.gd` 
+    - `@export var hearts: Array[Node]`
+    - Now when clicking on `GameManager` node there will be heart option in inspector
+    - Add three array and each will be fill-up with heart icon
+    - Now Add condition to decrease heart when collide with enemy
+        ```gd
+        func decrease_health():
+            lives-=1
+            print(lives)
+            for h in 3:
+                if h<lives:
+                    hearts[h].show()
+                else:
+                    hearts[h].hide()
+            if lives<=0:
+                get_tree().reload_current_scene()
+        ```
+- Now when player collide with enemy it will jump away, to do that we need to create another function in `main_character.gd`
+    ```gd
+    func jump_side(x):
+        velocity.y=JUMP_VELOCITY
+        velocity.x=x
+    ```
+-  In `enemy.gd` modify the function and by calculating `x_delta` and adding condition based on its value 
+    ```gd
+    func _on_area_2d_body_entered(body: Node2D) -> void:
+        if body.name == "CharacterBody2D":
+            var y_delta=position.y-body.position.y
+            var x_delta=body.position.x-position.x
+            print("x delta value: ",x_delta)
+            if y_delta>47:
+                print("Destroy Enemy ",y_delta)
+                queue_free()
+                body.jump()
+            else:
+                print("Health Decrease ",y_delta)
+                #body.queue_free()
+                game_manager.decrease_health()
+                if x_delta>0:
+                    body.jump_side(500)
+                else:
+                    body.jump_side(-500)
+    ```
 
     [⬆️ Go to top](#context)
