@@ -22,8 +22,9 @@
 - [Main menu UI in your Godot game](#main-menu-ui-in-your-godot-game)
 - [Scene transition](#scene-transition)
 - [Health points](#health-points)
-- [Enemies](#enemies)
+- [Enemies I](#enemies)
 - [Level 3 with Traps (falling ground)](#level-3-with-traps-falling-ground)
+- [Enemies II](#enemies-ii)
 
 ### Scene Setup
 - Create new project selecting mobile renderer & Git for version controlling
@@ -266,7 +267,7 @@
 
     [⬆️ Go to top](#context)
 
-### Enemies
+### Enemies I
 - Download enemies asset from [itch.io](https://pixelfrog-assets.itch.io/pixel-adventure-2)
 - Add `Mushroom` enemy asset in res directory
 - Create new node `RigidBody2D` inside that create 2 more node `AnimatedSprite2D` where frame will be adjust and another node `CollisionShape2D` for collide
@@ -289,5 +290,31 @@
     func _on_body_entered(body: Node2D) -> void:
         get_tree().reload_current_scene()
     ```
+
+    [⬆️ Go to top](#context)
+
+### Enemies II
+- To make the enemy collide with player we have to create another `Area2D` node and inside that `CollisionShape2D` node
+- Now adjust the size of `CollisionShape2D` rectangle shape
+- Attach script to the Root node `Enemy`
+- Add `body_entered` signal of `Area2D` node inside script
+    ```gd
+    extends RigidBody2D
+
+    func _on_area_2d_body_entered(body: Node2D) -> void:
+        if body.name == "CharacterBody2D":
+            var y_delta=position.y-body.position.y
+            if y_delta>47:
+                print("Destroy Enemy ",y_delta)
+                queue_free()
+                body.jump()
+            else:
+                print("Health Decrease ",y_delta)
+                body.queue_free()
+    ```
+    - Here `y_delta` indicate where player is collide with enemy body
+    - According to the value condition are made
+    - `queue_free()` means enemy body disappeared
+    - `body.queue_free()` means player body disappeared
 
     [⬆️ Go to top](#context)
