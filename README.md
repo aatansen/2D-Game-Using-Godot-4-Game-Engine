@@ -23,6 +23,7 @@
 - [Scene transition](#scene-transition)
 - [Health points](#health-points)
 - [Enemies](#enemies)
+- [Level 3 with Traps (falling ground)](#level-3-with-traps-falling-ground)
 
 ### Scene Setup
 - Create new project selecting mobile renderer & Git for version controlling
@@ -271,5 +272,22 @@
 - Create new node `RigidBody2D` inside that create 2 more node `AnimatedSprite2D` where frame will be adjust and another node `CollisionShape2D` for collide
 - Now save it as `Scene`
 - Now drag and drop `enemy.tscn` to the map
+
+    [⬆️ Go to top](#context)
+
+### Level 3 with Traps (falling ground)
+- Duplicate `level2.tscn` and rename it to `level3.tscn`
+- Edit and create new design with falling ground
+- Now create new node `Area2D` and `CollisionShape2D`
+- Select `CollisionShape2D` node and choose `WorldBoundaryShape`
+- Adjust the shape
+- Now create a gdscript on `Area2D` node
+- In gdscript write the following to reload the current scene when player fall
+    ```gd
+    extends Area2D
+
+    func _on_body_entered(body: Node2D) -> void:
+        get_tree().reload_current_scene()
+    ```
 
     [⬆️ Go to top](#context)
