@@ -15,7 +15,7 @@ run/main_scene="res://scenes/menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 boot_splash/image="res://assets/welcome/welcome_screen.png"
 config/icon="res://assets/main_character/frog_jump.png"
-config/windows_native_icon="res://Jump (32x32).ico"
+config/windows_native_icon="res://assets/objects/game_icon.ico"
 
 [display]
 
