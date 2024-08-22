@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ds2lk5g3ht1jv"
-path="res://.godot/imported/Frog Adventure.png-662359722b6d7c0c1e4ddf0cf9b9b8d5.ctex"
+uid="uid://cct83q6q32st"
+path="res://.godot/imported/enemy_idle.png-0d64e3333a1837bd737664c3ef016683.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Frog Adventure.png"
-dest_files=["res://.godot/imported/Frog Adventure.png-662359722b6d7c0c1e4ddf0cf9b9b8d5.ctex"]
+source_file="res://assets/enemies/enemy_idle.png"
+dest_files=["res://.godot/imported/enemy_idle.png-0d64e3333a1837bd737664c3ef016683.ctex"]
 
 [params]
 

@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=4 uid="uid://cl5jn6l5j3sm7"]
 
-[ext_resource type="Texture2D" uid="uid://cic5wq368pxth" path="res://images/Green.png" id="1_fvlc5"]
-[ext_resource type="Texture2D" uid="uid://bo5g4mdth4r4n" path="res://images/map_terrain.png" id="2_4lyny"]
-[ext_resource type="PackedScene" uid="uid://cyj6xh3uonqyg" path="res://scenes/main_character.tscn" id="3_8gmof"]
-[ext_resource type="PackedScene" uid="uid://2sb5yocutbej" path="res://scenes/collectable.tscn" id="4_3cxw6"]
+[ext_resource type="Texture2D" uid="uid://cic5wq368pxth" path="res://assets/background/Green.png" id="1_fvlc5"]
+[ext_resource type="Texture2D" uid="uid://bo5g4mdth4r4n" path="res://assets/terrain/map_terrain.png" id="2_4lyny"]
+[ext_resource type="PackedScene" uid="uid://cyj6xh3uonqyg" path="res://scenes/game_objects/main_character.tscn" id="3_8gmof"]
+[ext_resource type="PackedScene" uid="uid://2sb5yocutbej" path="res://scenes/game_objects/collectable.tscn" id="4_3cxw6"]
 [ext_resource type="Script" path="res://game_manager.gd" id="5_fdjay"]
-[ext_resource type="PackedScene" uid="uid://dyx7uld14q1yo" path="res://scenes/finish.tscn" id="6_ex8h6"]
-[ext_resource type="PackedScene" uid="uid://cj823otj6f340" path="res://scenes/level2.tscn" id="7_chr33"]
-[ext_resource type="PackedScene" uid="uid://ba5kh4sf4kxh4" path="res://scenes/enemy.tscn" id="8_k640r"]
-[ext_resource type="Texture2D" uid="uid://c4er2ppf7uv6w" path="res://images/heart.png" id="8_xas63"]
+[ext_resource type="PackedScene" uid="uid://dyx7uld14q1yo" path="res://scenes/game_objects/finish.tscn" id="6_ex8h6"]
+[ext_resource type="PackedScene" uid="uid://cj823otj6f340" path="res://scenes/levels/level2.tscn" id="7_chr33"]
+[ext_resource type="PackedScene" uid="uid://ba5kh4sf4kxh4" path="res://scenes/game_objects/enemy.tscn" id="8_k640r"]
+[ext_resource type="Texture2D" uid="uid://c4er2ppf7uv6w" path="res://assets/objects/heart.png" id="8_xas63"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yik4t"]
 texture = ExtResource("2_4lyny")

@@ -11,10 +11,10 @@ config_version=5
 [application]
 
 config/name="Frog Adventure"
-run/main_scene="res://scenes/level3.tscn"
+run/main_scene="res://scenes/menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
-boot_splash/image="res://images/welcome_screen.png"
-config/icon="res://images/main_character/frog_jump.png"
+boot_splash/image="res://assets/welcome/welcome_screen.png"
+config/icon="res://assets/main_character/frog_jump.png"
 config/windows_native_icon="res://Jump (32x32).ico"
 
 [display]
@@ -25,8 +25,8 @@ window/stretch/aspect="expand"
 [file_customization]
 
 folder_colors={
-"res://images/": "orange",
-"res://images/main_character/": "green",
+"res://assets/": "orange",
+"res://assets/main_character/": "green",
 "res://scenes/": "purple"
 }
 

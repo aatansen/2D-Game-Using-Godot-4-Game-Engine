@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byi7quyt52ctm"
-path="res://.godot/imported/frog_run.png-c7b9471664a0eb50237c022054cba648.ctex"
+uid="uid://dpmb0phitcp15"
+path="res://.godot/imported/End (Idle).png-fe2c68e3783ac936ae57b934b62a5e77.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/main_character/frog_run.png"
-dest_files=["res://.godot/imported/frog_run.png-c7b9471664a0eb50237c022054cba648.ctex"]
+source_file="res://assets/objects/End (Idle).png"
+dest_files=["res://.godot/imported/End (Idle).png-fe2c68e3783ac936ae57b934b62a5e77.ctex"]
 
 [params]
 
